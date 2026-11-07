@@ -1,0 +1,92 @@
+{
+ "seed": 7852,
+ "predictions": {
+  "ex1": {
+   "text": "Cac tin chua tu Recall có xác suat là thu spam cao hon",
+   "time": "06:02:08"
+  },
+  "ml_f1": {
+   "text": "F1 ~ 0.88, prediction cao hơn recall vì mô hình chỉ gán nhãn spam khi có đầy đủ các từ spam trong tin, nhưng những tin spam có cách viết lạ hoặc không có từ spam quen thuộc thì mô hình có thể đoán tin đó là ham. ",
+   "time": "06:14:09"
+  },
+  "ml_lr": {
+   "text": "lr = 0.001 trọng số giảm nhẹ làm đường loss giảm dần đều và chậm đến điểm tốt hơn lr = 50 ",
+   "time": "06:14:30"
+  },
+  "dl_curve": {
+   "text": "val loss có thể giảm và tăng follow theo train loss, có thể f1 của MLP cao hơn.",
+   "time": "06:32:20"
+  },
+  "dl_relu": {
+   "text": "mạng 2 lớp Linear liên tiếp tương đương với mô hình tuyến tính học máy , dự đoán F1 sẽ không thay đổi",
+   "time": "06:32:38"
+  }
+ },
+ "checks": {
+  "1.1 vectorize": true,
+  "1.2 sigmoid / predict_proba": true,
+  "1.3 train_logreg": true,
+  "1.4 metrics": true,
+  "2.1 build_mlp": true,
+  "2.2 train_mlp": true,
+  "3.1–3.2 cosine / top_k_similar": true,
+  "tính tay: baseline_accuracy": true,
+  "tính tay: sigmoid_0": true,
+  "tính tay: f1_example": false,
+  "tính tay: cosine_example": false,
+  "tính tay: llm_cost_per_day": false
+ },
+ "experiments": [
+  {
+   "key": "ml_f1",
+   "time": "06:14:12"
+  },
+  {
+   "key": "ml_lr",
+   "time": "06:14:32"
+  },
+  {
+   "key": "dl_curve",
+   "time": "06:24:25"
+  },
+  {
+   "key": "dl_relu",
+   "time": "06:28:25"
+  },
+  {
+   "key": "dl_curve",
+   "time": "06:32:23"
+  },
+  {
+   "key": "dl_relu",
+   "time": "06:32:38"
+  }
+ ],
+ "challenge": 4,
+ "results": {
+  "1. BoW + LogReg (tự code)": {
+   "accuracy": 0.9703225806451613,
+   "precision": 0.9770114942528736,
+   "recall": 0.8018867924528302,
+   "f1": 0.8808290155440415,
+   "f1_SUB": 0.888888888888889,
+   "train_s": 3.1555862680002065,
+   "msg_per_s": 40114.349187307365,
+   "p50_ms": 0.052228500067030836,
+   "p95_ms": 0.09658054995043129,
+   "usd_per_1k": 0.0
+  },
+  "2. BoW + MLP (deep learning)": {
+   "accuracy": 0.9896774193548387,
+   "precision": 0.9803921568627451,
+   "recall": 0.9433962264150944,
+   "f1": 0.9615384615384616,
+   "f1_SUB": 0.9743589743589743,
+   "train_s": 14.159941809999964,
+   "msg_per_s": 31634.17537557066,
+   "p50_ms": 0.17007750011543976,
+   "p95_ms": 0.26322950016037794,
+   "usd_per_1k": 0.0
+  }
+ }
+}
